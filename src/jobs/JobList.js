@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useEffect, useState} from "react";
 import SearchBar from "../search/SearchBar";
 import Api from "../api/Api";
 import JobCardList from "./JobCardList";

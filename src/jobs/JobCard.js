@@ -1,14 +1,14 @@
 import React, {useContext, useEffect, useState} from "react";
 import UserContext from "../auth/UserContext";
 
-function JobCard({title, salary, equity, companyName}) {
+function JobCard({id, title, salary, equity, companyName}) {
 
     const {hasAppliesToJob, applyToJob} = useContext(UserContext);
     const [applied, setApplied] = useState();
 
     useEffect(() => {
         setApplied(hasAppliesToJob(id));
-    }, [id, hasAppliesToJob]);
+    }, [hasAppliesToJob]);
 
     async function handleApply(e) {
         if (hasAppliesToJob(id)) return;

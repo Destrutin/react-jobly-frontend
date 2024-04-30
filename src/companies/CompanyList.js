@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SearchBar from "../search/SearchBar";
 import Api from "../api/Api";
 import CompanyCard from "./CompanyCard";
@@ -19,7 +19,7 @@ function CompanyList() {
         <div className="CompanyList">
             <SearchBar search={search}/>
             <div className="CompanyList-list">
-                {companies.map(c => {
+                {companies.map(c => (
                     <CompanyCard
                         key={c.handle}
                         handle={c.handle}
@@ -27,7 +27,7 @@ function CompanyList() {
                         description={c.description}
                         logoUrl={c.logoUrl}
                     />
-                })}
+                ))}
             </div>
         </div>
     )

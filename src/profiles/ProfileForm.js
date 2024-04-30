@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Api from "../api/Api";
 import UserContext from "../auth/UserContext";
 
@@ -74,7 +74,7 @@ function ProfileForm() {
                         onChange={handleChange}
                     />
                 </div>
-                {updateSuccessful ? <Alert type="success" messages={["Updated successfully."]}/> : null}
+                {updateSuccessful ? alert("Updated successfully.") : null}
 
                 <button className="profile-submit" onClick={handleSubmit}>
                   Save Changes  

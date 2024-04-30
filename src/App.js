@@ -1,11 +1,11 @@
 import {BrowserRouter} from "react-router-dom";
 import {jwtDecode} from "jwt-decode";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import useLocalStorage from "./hooks/useLocalStorage";
-import Api from "../api/Api";
+import Api from "./api/Api";
 import UserContext from "./auth/UserContext";
 import NavBar from "./routes/NavBar";
-import Routes from "./routes/Routes";
+import AppRoutes from "./routes/AppRoutes";
 import './App.css';
 
 function App() {
@@ -71,7 +71,7 @@ function App() {
       <BrowserRouter>
         <UserContext.Provider value={{currentUser, setCurrentUser, hasAppliedToJob, applyToJob}}>
           <NavBar logout={logout}/>
-          <Routes signup={signup} login={login}/>
+          <AppRoutes signup={signup} login={login}/>
         </UserContext.Provider>
       </BrowserRouter>
     </div>

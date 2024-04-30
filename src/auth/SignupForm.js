@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 function SignupForm({signup}) {
-    const history = useHistory();
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username: "",
         password: "",
@@ -20,7 +21,7 @@ function SignupForm({signup}) {
 
         try{
             await signup(formData);
-            history.push("/companies")
+            navigate("/companies")
         } catch (err) {
             console.error(err);
         }
