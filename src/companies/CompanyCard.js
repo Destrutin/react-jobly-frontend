@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import "./CompanyCard.css"
 
 
 function CompanyCard({handle, name, description, logoUrl}) {

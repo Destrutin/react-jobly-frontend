@@ -4,7 +4,7 @@ import JobCard from "./JobCard";
 function JobCardList({jobs}) {
     return (
         <div className="JobCardList">
-            {jobs.map(j => {
+            {jobs && jobs.map(j => (
                 <JobCard
                     key={j.id}
                     id={j.id}
@@ -13,7 +13,7 @@ function JobCardList({jobs}) {
                     equity={j.equity}
                     companyName={j.companyName}
                 />
-            })}
+            ))}
         </div>
     )
 }

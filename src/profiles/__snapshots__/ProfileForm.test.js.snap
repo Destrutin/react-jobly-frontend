@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Profile"
+  >
+    <h1>
+      Profile
+    </h1>
+    <div
+      class="profile-card"
+    >
+      <div
+        class="profile-input"
+      >
+        <label
+          for="username"
+        >
+          Username
+        </label>
+        <input
+          disabled=""
+          id="username"
+          value="testuser"
+        />
+      </div>
+      <div
+        class="profile-input"
+      >
+        <label
+          for="firstName"
+        >
+          First Name
+        </label>
+        <input
+          id="firstName"
+          name="firstName"
+          value=""
+        />
+      </div>
+      <div
+        class="profile-input"
+      >
+        <label
+          for="lastName"
+        >
+          Last Name
+        </label>
+        <input
+          id="lastName"
+          name="lastName"
+          value=""
+        />
+      </div>
+      <div
+        class="profile-input"
+      >
+        <label
+          for="email"
+        >
+          Email
+        </label>
+        <input
+          id="email"
+          name="email"
+          value="test@test.net"
+        />
+      </div>
+      <button
+        class="profile-submit"
+      >
+        Save Changes
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

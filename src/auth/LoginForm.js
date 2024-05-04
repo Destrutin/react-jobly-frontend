@@ -29,8 +29,9 @@ function LoginForm({login}) {
             <div className="login-card">
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <label>Username</label>
+                        <label htmlFor="username">Username</label>
                         <input
+                            id="username"
                             name="username"
                             value={formData.username}
                             onChange={handleChange}
@@ -38,8 +39,9 @@ function LoginForm({login}) {
                         />
                     </div>
                     <div>
-                        <label>Password</label>
+                        <label htmlFor="password">Password</label>
                         <input
+                            id="password"
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
@@ -50,6 +52,7 @@ function LoginForm({login}) {
                     <button
                         className="login-button"
                         onSubmit={handleSubmit}
+                        type="submit"
                     >Submit</button>
                 </form>
             </div>

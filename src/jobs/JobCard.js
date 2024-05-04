@@ -1,17 +1,18 @@
 import React, {useContext, useEffect, useState} from "react";
 import UserContext from "../auth/UserContext";
+import "./JobCard.css"
 
 function JobCard({id, title, salary, equity, companyName}) {
 
-    const {hasAppliesToJob, applyToJob} = useContext(UserContext);
+    const {hasAppliedToJob, applyToJob} = useContext(UserContext);
     const [applied, setApplied] = useState();
 
     useEffect(() => {
-        setApplied(hasAppliesToJob(id));
-    }, [hasAppliesToJob]);
+        setApplied(hasAppliedToJob(id));
+    }, [id, hasAppliedToJob]);
 
     async function handleApply(e) {
-        if (hasAppliesToJob(id)) return;
+        if (hasAppliedToJob(id)) return;
         applyToJob(id);
         setApplied(true);
     }
@@ -26,7 +27,7 @@ function JobCard({id, title, salary, equity, companyName}) {
                     className="apply-button"
                     onClick={handleApply}
                     disabled={applied}
-                >{applied ? "Applies" : "Apply"}</button>
+                >{applied ? "Applied" : "Apply"}</button>
             </div>
         </div>
     )

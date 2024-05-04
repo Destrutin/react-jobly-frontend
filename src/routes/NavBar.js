@@ -30,7 +30,7 @@ function NavBar({logout}) {
 
     return (
         <nav className="NavBar">
-            <NavLink to="/">Jobly</NavLink>
+            <NavLink to="/" className="NavBar-brand">Jobly</NavLink>
             {currentUser ? loggedIn() : loggedOut()}
         </nav>
     );

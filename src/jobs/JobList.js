@@ -6,8 +6,16 @@ import JobCardList from "./JobCardList";
 function JobList() {
     const [jobs, setJobs] = useState(null);
 
-    useEffect(function getJobsOnLoad() {
-        search();
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                let jobs = await Api.getJobs();
+                setJobs(jobs);
+            } catch (err) {
+                console.error("Error fetching data", err);
+            }
+        }
+        fetchData();
     }, []);
 
     async function search(title) {

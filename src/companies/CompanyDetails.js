@@ -7,18 +7,30 @@ function CompanyDetails() {
     const {handle} = useParams();
     const [company, setCompany] = useState(null);
 
-    useEffect(function getCompanyAndJobs() {
+    useEffect(() => {
         async function getCompany() {
-            setCompany(await Api.getCompany(handle));
+            try {
+                let company = await Api.getCompany(handle);
+                setCompany(company);
+            } catch (err) {
+                console.error("Error fetching company data", err);
+            }
         }
         getCompany();
     }, [handle]);
 
     return (
         <div className="CompanyDetails">
-            <h4>{company.name}</h4>
-            <p>{company.description}</p>
-            <JobCardList jobs={company.jobs}/>
+            {company ? (
+                <>
+                    <h4>{company.name}</h4>
+                    <p>{company.description}</p>
+                    <JobCardList jobs={company.jobs}/>
+                </>
+            ) : (
+                <p>Loading...</p>
+            )}
+            
         </div>
     );
 };

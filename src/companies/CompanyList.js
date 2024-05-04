@@ -6,8 +6,16 @@ import CompanyCard from "./CompanyCard";
 function CompanyList() {
     const [companies, setCompanies] = useState(null);
 
-    useEffect(function getCompaniesOnLoad() {
-        search();
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                let companies = await Api.getCompanies();
+                setCompanies(companies);
+            } catch (err) {
+                console.error("Error fetching data", err);
+            }
+        }
+        fetchData();
     }, []);
 
     async function search(name) {
@@ -19,7 +27,7 @@ function CompanyList() {
         <div className="CompanyList">
             <SearchBar search={search}/>
             <div className="CompanyList-list">
-                {companies.map(c => (
+                {companies && companies.map(c => (
                     <CompanyCard
                         key={c.handle}
                         handle={c.handle}
